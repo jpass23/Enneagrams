@@ -11,6 +11,12 @@
 		C0D6FEFF2A6EFA5C00FE4316 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6FEFE2A6EFA5C00FE4316 /* ContentView.swift */; };
 		C0D6FF012A6EFA5D00FE4316 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0D6FF002A6EFA5D00FE4316 /* Assets.xcassets */; };
 		C0D6FF042A6EFA5D00FE4316 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0D6FF032A6EFA5D00FE4316 /* Preview Assets.xcassets */; };
+		C0D6FF0C2A6EFD1E00FE4316 /* ChooseEnneagramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6FF0B2A6EFD1E00FE4316 /* ChooseEnneagramView.swift */; };
+		C0D6FF0E2A6EFD3F00FE4316 /* EnneagramInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6FF0D2A6EFD3F00FE4316 /* EnneagramInfoView.swift */; };
+		C0D6FF112A6EFD8F00FE4316 /* LandingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6FF102A6EFD8F00FE4316 /* LandingPageView.swift */; };
+		C0D6FF132A6EFD9A00FE4316 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6FF122A6EFD9A00FE4316 /* Model.swift */; };
+		C0D6FF152A6EFE3500FE4316 /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6FF142A6EFE3500FE4316 /* RateView.swift */; };
+		C0D6FF172A6EFE6100FE4316 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6FF162A6EFE6100FE4316 /* HistoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +25,12 @@
 		C0D6FEFE2A6EFA5C00FE4316 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C0D6FF002A6EFA5D00FE4316 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0D6FF032A6EFA5D00FE4316 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C0D6FF0B2A6EFD1E00FE4316 /* ChooseEnneagramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseEnneagramView.swift; sourceTree = "<group>"; };
+		C0D6FF0D2A6EFD3F00FE4316 /* EnneagramInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnneagramInfoView.swift; sourceTree = "<group>"; };
+		C0D6FF102A6EFD8F00FE4316 /* LandingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageView.swift; sourceTree = "<group>"; };
+		C0D6FF122A6EFD9A00FE4316 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		C0D6FF142A6EFE3500FE4316 /* RateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateView.swift; sourceTree = "<group>"; };
+		C0D6FF162A6EFE6100FE4316 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +65,8 @@
 			children = (
 				C0D6FEFC2A6EFA5C00FE4316 /* EnneagramsApp.swift */,
 				C0D6FEFE2A6EFA5C00FE4316 /* ContentView.swift */,
+				C0D6FF122A6EFD9A00FE4316 /* Model.swift */,
+				C0D6FF0F2A6EFD6800FE4316 /* Views */,
 				C0D6FF002A6EFA5D00FE4316 /* Assets.xcassets */,
 				C0D6FF022A6EFA5D00FE4316 /* Preview Content */,
 			);
@@ -65,6 +79,18 @@
 				C0D6FF032A6EFA5D00FE4316 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C0D6FF0F2A6EFD6800FE4316 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C0D6FF0B2A6EFD1E00FE4316 /* ChooseEnneagramView.swift */,
+				C0D6FF142A6EFE3500FE4316 /* RateView.swift */,
+				C0D6FF162A6EFE6100FE4316 /* HistoryView.swift */,
+				C0D6FF0D2A6EFD3F00FE4316 /* EnneagramInfoView.swift */,
+				C0D6FF102A6EFD8F00FE4316 /* LandingPageView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +164,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0D6FEFF2A6EFA5C00FE4316 /* ContentView.swift in Sources */,
+				C0D6FF172A6EFE6100FE4316 /* HistoryView.swift in Sources */,
+				C0D6FF152A6EFE3500FE4316 /* RateView.swift in Sources */,
+				C0D6FF0C2A6EFD1E00FE4316 /* ChooseEnneagramView.swift in Sources */,
+				C0D6FF112A6EFD8F00FE4316 /* LandingPageView.swift in Sources */,
+				C0D6FF132A6EFD9A00FE4316 /* Model.swift in Sources */,
 				C0D6FEFD2A6EFA5C00FE4316 /* EnneagramsApp.swift in Sources */,
+				C0D6FF0E2A6EFD3F00FE4316 /* EnneagramInfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
