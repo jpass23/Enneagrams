@@ -14,7 +14,7 @@ struct ChooseEnneagramView: View {
             VStack(spacing: 10) {
                 ForEach(0..<9) { num in
                     NavigationLink{
-                        EnneagramInfoView()
+                        EnneagramInfoView(vm: EnneagramInfoViewModel(enneagramNumber: num+1, model: model))
                     } label: {
                         EnneagramBubbleView(number: num+1, name: model.types[num])
                     }

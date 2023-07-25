@@ -19,7 +19,7 @@
 		C0D6FF172A6EFE6100FE4316 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6FF162A6EFE6100FE4316 /* HistoryView.swift */; };
 		C0D6FF1A2A6F722900FE4316 /* EnneagramBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6FF192A6F722900FE4316 /* EnneagramBubbleView.swift */; };
 		C0D6FF1C2A6F72B800FE4316 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6FF1B2A6F72B800FE4316 /* Extensions.swift */; };
-		C0D6FF1F2A6F7B4C00FE4316 /* ChooseEnneagramViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6FF1E2A6F7B4C00FE4316 /* ChooseEnneagramViewModel.swift */; };
+		C0D6FF1F2A6F7B4C00FE4316 /* EnneagramInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6FF1E2A6F7B4C00FE4316 /* EnneagramInfoViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +36,7 @@
 		C0D6FF162A6EFE6100FE4316 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		C0D6FF192A6F722900FE4316 /* EnneagramBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnneagramBubbleView.swift; sourceTree = "<group>"; };
 		C0D6FF1B2A6F72B800FE4316 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		C0D6FF1E2A6F7B4C00FE4316 /* ChooseEnneagramViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseEnneagramViewModel.swift; sourceTree = "<group>"; };
+		C0D6FF1E2A6F7B4C00FE4316 /* EnneagramInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnneagramInfoViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +113,7 @@
 		C0D6FF1D2A6F7B3600FE4316 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				C0D6FF1E2A6F7B4C00FE4316 /* ChooseEnneagramViewModel.swift */,
+				C0D6FF1E2A6F7B4C00FE4316 /* EnneagramInfoViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -198,7 +198,7 @@
 				C0D6FF132A6EFD9A00FE4316 /* Model.swift in Sources */,
 				C0D6FEFD2A6EFA5C00FE4316 /* EnneagramsApp.swift in Sources */,
 				C0D6FF0E2A6EFD3F00FE4316 /* EnneagramInfoView.swift in Sources */,
-				C0D6FF1F2A6F7B4C00FE4316 /* ChooseEnneagramViewModel.swift in Sources */,
+				C0D6FF1F2A6F7B4C00FE4316 /* EnneagramInfoViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

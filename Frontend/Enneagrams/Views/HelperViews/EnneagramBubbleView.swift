@@ -16,7 +16,7 @@ struct EnneagramBubbleView: View {
                 .frame(width: UIScreen.screenW/3 + CGFloat(12*name.count), height: UIScreen.screenH/14)
                 .foregroundColor(Color(hue: 218/365, saturation: 0.8 + (0.02*Double(number)), brightness: 1-(0.06*Double(number))))
             HStack{
-                Text(String(number) + ":   " + name.uppercased())
+                Text(String(number) + ".   " + name.uppercased())
                 Image(systemName: "chevron.forward").font(.title3)
             }
             .bold()

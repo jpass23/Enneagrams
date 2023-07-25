@@ -13,3 +13,12 @@ extension UIScreen {
     static let screenH = UIScreen.main.bounds.size.height
 }
 
+extension Binding where Value == Bool {
+    var negate: Binding<Value> {
+        Binding<Value>(
+            get: { !self.wrappedValue },
+            set: { self.wrappedValue = !$0 }
+        )
+    }
+}
+
