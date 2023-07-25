@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var model = Model()
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        Group{
+            if model.onboardingComplete{
+                LandingPageView()
+            }else{
+                ChooseEnneagramView()
+            }
         }
-        .padding()
+        .environmentObject(model)
     }
 }
 

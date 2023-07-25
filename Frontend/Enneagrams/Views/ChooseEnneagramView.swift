@@ -8,13 +8,24 @@
 import SwiftUI
 
 struct ChooseEnneagramView: View {
+    @EnvironmentObject var model: Model
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            VStack(spacing: 10) {
+                ForEach(0..<9) { num in
+                    NavigationLink{
+                        EnneagramInfoView()
+                    } label: {
+                        EnneagramBubbleView(number: num+1, name: model.types[num])
+                    }
+                }
+            }.navigationTitle("Choose a type:")
+        }
     }
 }
 
-struct ChooseEnneagramView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChooseEnneagramView()
-    }
-}
+//struct ChooseEnneagramView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ChooseEnneagramView()
+//    }
+//}

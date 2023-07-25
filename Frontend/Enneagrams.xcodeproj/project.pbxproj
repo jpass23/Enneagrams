@@ -17,6 +17,9 @@
 		C0D6FF132A6EFD9A00FE4316 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6FF122A6EFD9A00FE4316 /* Model.swift */; };
 		C0D6FF152A6EFE3500FE4316 /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6FF142A6EFE3500FE4316 /* RateView.swift */; };
 		C0D6FF172A6EFE6100FE4316 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6FF162A6EFE6100FE4316 /* HistoryView.swift */; };
+		C0D6FF1A2A6F722900FE4316 /* EnneagramBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6FF192A6F722900FE4316 /* EnneagramBubbleView.swift */; };
+		C0D6FF1C2A6F72B800FE4316 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6FF1B2A6F72B800FE4316 /* Extensions.swift */; };
+		C0D6FF1F2A6F7B4C00FE4316 /* ChooseEnneagramViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6FF1E2A6F7B4C00FE4316 /* ChooseEnneagramViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 		C0D6FF122A6EFD9A00FE4316 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		C0D6FF142A6EFE3500FE4316 /* RateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateView.swift; sourceTree = "<group>"; };
 		C0D6FF162A6EFE6100FE4316 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		C0D6FF192A6F722900FE4316 /* EnneagramBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnneagramBubbleView.swift; sourceTree = "<group>"; };
+		C0D6FF1B2A6F72B800FE4316 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		C0D6FF1E2A6F7B4C00FE4316 /* ChooseEnneagramViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseEnneagramViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +72,8 @@
 				C0D6FEFC2A6EFA5C00FE4316 /* EnneagramsApp.swift */,
 				C0D6FEFE2A6EFA5C00FE4316 /* ContentView.swift */,
 				C0D6FF122A6EFD9A00FE4316 /* Model.swift */,
+				C0D6FF1B2A6F72B800FE4316 /* Extensions.swift */,
+				C0D6FF1D2A6F7B3600FE4316 /* ViewModels */,
 				C0D6FF0F2A6EFD6800FE4316 /* Views */,
 				C0D6FF002A6EFA5D00FE4316 /* Assets.xcassets */,
 				C0D6FF022A6EFA5D00FE4316 /* Preview Content */,
@@ -84,6 +92,7 @@
 		C0D6FF0F2A6EFD6800FE4316 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C0D6FF182A6F720A00FE4316 /* HelperViews */,
 				C0D6FF0B2A6EFD1E00FE4316 /* ChooseEnneagramView.swift */,
 				C0D6FF142A6EFE3500FE4316 /* RateView.swift */,
 				C0D6FF162A6EFE6100FE4316 /* HistoryView.swift */,
@@ -91,6 +100,22 @@
 				C0D6FF102A6EFD8F00FE4316 /* LandingPageView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		C0D6FF182A6F720A00FE4316 /* HelperViews */ = {
+			isa = PBXGroup;
+			children = (
+				C0D6FF192A6F722900FE4316 /* EnneagramBubbleView.swift */,
+			);
+			path = HelperViews;
+			sourceTree = "<group>";
+		};
+		C0D6FF1D2A6F7B3600FE4316 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C0D6FF1E2A6F7B4C00FE4316 /* ChooseEnneagramViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,11 +191,14 @@
 				C0D6FEFF2A6EFA5C00FE4316 /* ContentView.swift in Sources */,
 				C0D6FF172A6EFE6100FE4316 /* HistoryView.swift in Sources */,
 				C0D6FF152A6EFE3500FE4316 /* RateView.swift in Sources */,
+				C0D6FF1A2A6F722900FE4316 /* EnneagramBubbleView.swift in Sources */,
 				C0D6FF0C2A6EFD1E00FE4316 /* ChooseEnneagramView.swift in Sources */,
+				C0D6FF1C2A6F72B800FE4316 /* Extensions.swift in Sources */,
 				C0D6FF112A6EFD8F00FE4316 /* LandingPageView.swift in Sources */,
 				C0D6FF132A6EFD9A00FE4316 /* Model.swift in Sources */,
 				C0D6FEFD2A6EFA5C00FE4316 /* EnneagramsApp.swift in Sources */,
 				C0D6FF0E2A6EFD3F00FE4316 /* EnneagramInfoView.swift in Sources */,
+				C0D6FF1F2A6F7B4C00FE4316 /* ChooseEnneagramViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
