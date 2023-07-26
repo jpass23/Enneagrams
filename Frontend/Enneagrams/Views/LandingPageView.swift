@@ -11,6 +11,9 @@ struct LandingPageView: View {
     @EnvironmentObject var model: Model
     var body: some View {
         Text("Landing Page for \(model.enneagram?.name ?? "")")
+        Button ("Switch Enneagram"){
+            model.deleteEnneagram()
+        }
     }
 }
 

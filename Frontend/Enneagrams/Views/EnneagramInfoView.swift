@@ -16,13 +16,13 @@ struct EnneagramInfoView: View {
                 Text("\(enneagram.number). \(enneagram.name)")
                     .bold()
                     .font(.title)
+                    .padding(10)
+                Text(enneagram.descriptorsString)
+                    .italic()
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
                 Spacer()
-                HStack{
-                    ForEach(enneagram.descriptors, id: \.self){ adj in
-                        Text("\(adj) ")
-                    }
-                }
-                VStack (alignment: .leading){
+                VStack (alignment: .leading, spacing: 10){
                     Text("Fear: ").bold() + Text(enneagram.fear)
                     Text("Desire: ").bold() + Text(enneagram.desire)
                 }
@@ -40,6 +40,8 @@ struct EnneagramInfoView: View {
                 }
                 Spacer()
             }
+            .font(.title3)
+            .padding()
         }else{
             VStack(spacing: 10){
                 ProgressView()
