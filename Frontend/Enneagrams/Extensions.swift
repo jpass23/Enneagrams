@@ -22,3 +22,21 @@ extension Binding where Value == Bool {
     }
 }
 
+extension Date {
+    func getDateWithYear() -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        return dateFormatter.string(from: self)
+    }
+    func getDateWithoutYear() -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd"
+        return dateFormatter.string(from: self)
+    }
+    func getYear() -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy"
+        return dateFormatter.string(from: self)
+    }
+}
+

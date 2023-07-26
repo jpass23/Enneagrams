@@ -37,10 +37,18 @@ struct Enneagram: Codable {
     }
 }
 
+struct Point: Identifiable{
+    var id = UUID()
+    
+    let date: Date
+    let level: Int
+}
+
 class Model: ObservableObject {
     let types: [String] = ["The Reformer", "The Helper", "The Achiever", "The Individualist", "The Investigator", "The Loyalist", "The Enthusiast", "The Challenger", "The Peacemaker"]
     @Published var onboardingComplete = UserDefaults.standard.bool(forKey: "onboardingComplete")
     @Published var enneagram: Enneagram?
+    @Published var chartData: [Point] = [Point(date: Date(timeIntervalSinceNow: -100000), level: 3), Point(date: Date(timeIntervalSinceNow: -5000), level: 8), Point(date: Date(), level: 4)]
     
     init() {
         if let data = UserDefaults.standard.object(forKey: "enneagram") as? Data {

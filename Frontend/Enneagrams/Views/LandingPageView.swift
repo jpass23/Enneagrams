@@ -10,15 +10,24 @@ import SwiftUI
 struct LandingPageView: View {
     @EnvironmentObject var model: Model
     var body: some View {
-        Text("Landing Page for \(model.enneagram?.name ?? "")")
-        Button ("Switch Enneagram"){
-            model.deleteEnneagram()
-        }
+        VStack{
+            ChartView()
+        }.navigationTitle("\(model.enneagram?.name ?? "")")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink{
+                        SettingsView()
+                    }label: {
+                        Image(systemName: "gear")
+                            .foregroundColor(.primary)
+                    }
+                }
+            }
     }
 }
 
-struct LandingPageView_Previews: PreviewProvider {
-    static var previews: some View {
-        LandingPageView()
-    }
-}
+//struct LandingPageView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LandingPageView()
+//    }
+//}

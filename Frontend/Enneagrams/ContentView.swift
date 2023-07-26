@@ -10,8 +10,10 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var model = Model()
     var body: some View {
-        LandingPageView().sheet(isPresented: $model.onboardingComplete.negate) {
-            ChooseEnneagramView()
+        NavigationStack{
+            LandingPageView().sheet(isPresented: $model.onboardingComplete.negate) {
+                ChooseEnneagramView()
+            }
         }
         .environmentObject(model)
     }
