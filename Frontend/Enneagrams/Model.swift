@@ -38,22 +38,30 @@ struct Enneagram: Codable {
 }
 
 struct Point: Identifiable{
-    var id = UUID()
-    
-    let date: Date
+    let id = UUID()
     let level: Int
+    var animate: Bool = false
 }
 
 class Model: ObservableObject {
     let types: [String] = ["The Reformer", "The Helper", "The Achiever", "The Individualist", "The Investigator", "The Loyalist", "The Enthusiast", "The Challenger", "The Peacemaker"]
     @Published var onboardingComplete = UserDefaults.standard.bool(forKey: "onboardingComplete")
     @Published var enneagram: Enneagram?
-    @Published var chartData: [Point] = [Point(date: Date(timeIntervalSinceNow: -100000), level: 3), Point(date: Date(timeIntervalSinceNow: -5000), level: 8), Point(date: Date(), level: 4)]
+    @Published var chartData: [Date:Point] = [Date.from(year: 2023, month: 7, day: 19) : Point(level: 1),
+                                              Date.from(year: 2023, month: 7, day: 20) : Point(level: 3),
+                                              Date.from(year: 2023, month: 7, day: 21) : Point(level: 5),
+                                              Date.from(year: 2023, month: 7, day: 22) : Point(level: 4),
+                                              Date.from(year: 2023, month: 7, day: 23) : Point(level: 6),
+                                              Date.from(year: 2023, month: 7, day: 24) : Point(level: 3),
+                                              Date.from(year: 2023, month: 7, day: 25) : Point(level: 8)]
+    @Published var todaysRating: Double = 1
     
     init() {
         if let data = UserDefaults.standard.object(forKey: "enneagram") as? Data {
             self.enneagram = try? JSONDecoder().decode(Enneagram.self, from: data)
         }
+        //Grab chartData from userDefaults
+        self.chartData[Date().justDate()] = Point(level: 9)
     }
     
     func setEnneagram(to enneagram: Enneagram){
@@ -70,5 +78,10 @@ class Model: ObservableObject {
         self.onboardingComplete = false
         UserDefaults.standard.set(false, forKey: "onboardingComplete")
         UserDefaults.standard.set(nil, forKey: "enneagram")
+    }
+    
+    func setToday(){
+        self.chartData[Date().justDate()] = Point(level: 10-Int(self.todaysRating), animate: true)
+        //Update chartData in UserDefaults
     }
 }

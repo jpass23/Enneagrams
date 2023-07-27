@@ -20,6 +20,7 @@ struct ChooseEnneagramView: View {
                     }
                 }
             }.navigationTitle("Choose a type:")
+            .interactiveDismissDisabled()
         }
     }
 }

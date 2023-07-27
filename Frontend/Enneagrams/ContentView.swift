@@ -11,7 +11,8 @@ struct ContentView: View {
     @StateObject var model = Model()
     var body: some View {
         NavigationStack{
-            LandingPageView().sheet(isPresented: $model.onboardingComplete.negate) {
+            LandingPageView()
+            .sheet(isPresented: $model.onboardingComplete.negate) {
                 ChooseEnneagramView()
             }
         }
