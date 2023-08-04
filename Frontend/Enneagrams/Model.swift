@@ -53,7 +53,13 @@ class Model: ObservableObject {
                                               Date.from(year: 2023, month: 7, day: 22) : Point(level: 4),
                                               Date.from(year: 2023, month: 7, day: 23) : Point(level: 6),
                                               Date.from(year: 2023, month: 7, day: 24) : Point(level: 3),
-                                              Date.from(year: 2023, month: 7, day: 25) : Point(level: 8)]
+                                              Date.from(year: 2023, month: 7, day: 25) : Point(level: 3),
+                                              Date.from(year: 2023, month: 7, day: 26) : Point(level: 8),
+                                              Date.from(year: 2023, month: 7, day: 27) : Point(level: 4),
+                                              Date.from(year: 2023, month: 7, day: 28) : Point(level: 1),
+                                              Date.from(year: 2023, month: 7, day: 29) : Point(level: 2),
+                                              Date.from(year: 2023, month: 7, day: 30) : Point(level: 5),
+                                              Date.from(year: 2023, month: 7, day: 31) : Point(level: 2)]
     @Published var todaysRating: Double = 1
     
     init() {
@@ -61,6 +67,9 @@ class Model: ObservableObject {
             self.enneagram = try? JSONDecoder().decode(Enneagram.self, from: data)
         }
         //Grab chartData from userDefaults
+        //TODO
+        
+        //Set today's point
         self.chartData[Date().justDate()] = Point(level: 9)
     }
     

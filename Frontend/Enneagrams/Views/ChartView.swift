@@ -10,17 +10,22 @@ import Charts
 
 struct ChartView: View {
     @EnvironmentObject var model: Model
+    @State var timeRange: Int = 1
     var body: some View {
         VStack (alignment: .leading){
-            Text("Past Levels")
-            Chart (Array(model.chartData.keys).sorted(), id: \.self) {
+            Picker(selection: $timeRange, label: Text("Picker")) {
+                Text("Week").tag(1)
+                Text("Month").tag(4)
+                Text("Year").tag(52)
+            }.pickerStyle(.segmented)
+            Chart (Array(model.chartData.keys).sorted().suffix(timeRange*7), id: \.self) {
                 let point = model.chartData[$0]!
                 LineMark(x: .value("Day", $0.getDateWithoutYear()),
                          y: .value("Level", point.animate ? point.level : 9))
-                if $0.getDateWithoutYear() == Date().getDateWithoutYear(){
+                //if $0.getDateWithoutYear() == Date().getDateWithoutYear(){
                     PointMark(x: .value("Day", $0.getDateWithoutYear()),
                               y: .value("Level", point.animate ? point.level : 9))
-                }
+                //}
             }
             .chartYScale(domain: [9, 1])
             .frame(height: 200)
@@ -49,8 +54,11 @@ struct ChartView: View {
 //                        )
 //                }
 //            })
-            .onAppear{
-                animateGraph()
+            .onAppear(){
+                animateGraph(onAppear: true)
+            }
+            .onChange(of: timeRange) { _ in
+                animateGraph(onAppear: false)
             }
         }
         .padding()
@@ -61,7 +69,12 @@ struct ChartView: View {
         //.shadow(radius: 5)
     }
     
-    func animateGraph() {
+    func animateGraph(onAppear: Bool) {
+        if !onAppear{
+            for (_,date) in Array(model.chartData.keys).sorted().enumerated() {
+                model.chartData[date]?.animate = false
+            }
+        }
         for (_,date) in Array(model.chartData.keys).sorted().enumerated() {
             withAnimation(.easeInOut(duration: 0.8)){
                 model.chartData[date]?.animate = true
