@@ -8,52 +8,19 @@
 import SwiftUI
 
 struct LandingPageView: View {
-    @EnvironmentObject var model: Model
-    @State var showNotes: Bool = false
-    @State var notes: String = "Click to add notes"
-    let placeholderString = "Click to add notes"
-    var body: some View {
-        VStack{
-            ChartView()
-            Text("Today you feel like a \(model.chartData[Date().justDate()]?.level ?? 0)")
-                .foregroundColor(.secondary)
-            Slider(value: $model.todaysRating, in: 1...9, step: 1)
-                .onChange(of: model.todaysRating) { _ in
-                    model.setToday(notes: self.notes)
-            }.font(.caption)
-            
-            TextEditor(text: $notes)
-                .foregroundColor(self.notes == placeholderString ? .gray : .primary)
-                .onTapGesture {
-                    if self.notes == placeholderString {
-                        self.notes = ""
-                    }
-                }
-            //Text(model.enneagram?.levels[model.chartData[Date().justDate()]!.level] ?? "") //EDGE CASE: Error here if date that app is opnened is different than date that slider is interacted with
-            
-            Spacer()
-            
-            Button{
-                model.setToday(notes: self.notes)
-            }label: {
-                Text("Save")
-            }.buttonStyle(.bordered)
+    @State var selection = 2
+    var body: some View{
+        TabView(selection: $selection) {
+            HistoryView().tabItem {
+                Image(systemName: "clock.arrow.circlepath")
+            }.tag(1)
+            TodayView().tabItem {
+                Image(systemName: "mappin.and.ellipse")
+            }.tag(2)
+            ChartPageView().tabItem {
+                Image(systemName: "chart.xyaxis.line")
+            }.tag(3)
         }
-        .padding()
-        .navigationTitle("\(model.enneagram?.name ?? "")")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink{
-                        SettingsView()
-                    }label: {
-                        Image(systemName: "gear")
-                            .foregroundColor(.primary)
-                    }
-                }
-            }
-            .sheet(isPresented: $showNotes) {
-                Text("Here are some notes")
-            }
     }
 }
 

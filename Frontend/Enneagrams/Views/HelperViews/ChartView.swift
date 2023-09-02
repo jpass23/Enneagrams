@@ -12,7 +12,7 @@ struct ChartView: View {
     @EnvironmentObject var model: Model
     @State var timeRange: Int = 1
     var body: some View {
-        VStack (alignment: .leading){
+        VStack (alignment: .leading, spacing: 30){
             Picker(selection: $timeRange, label: Text("Picker")) {
                 Text("Week").tag(1)
                 Text("Month").tag(4)

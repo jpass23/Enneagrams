@@ -48,5 +48,11 @@ extension Date {
         let day = Int(dateFormatter.string(from: self))!
         return Date.from(year: year, month: month, day: day)
     }
+    
+    func getDateWithYear() -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        return dateFormatter.string(from: self)
+    }
 }
 
