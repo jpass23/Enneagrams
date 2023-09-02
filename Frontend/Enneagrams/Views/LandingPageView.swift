@@ -10,6 +10,8 @@ import SwiftUI
 struct LandingPageView: View {
     @EnvironmentObject var model: Model
     @State var showNotes: Bool = false
+    @State var notes: String = "Click to add notes"
+    let placeholderString = "Click to add notes"
     var body: some View {
         VStack{
             ChartView()
@@ -17,17 +19,24 @@ struct LandingPageView: View {
                 .foregroundColor(.secondary)
             Slider(value: $model.todaysRating, in: 1...9, step: 1)
                 .onChange(of: model.todaysRating) { _ in
-                    model.setToday()
+                    model.setToday(notes: self.notes)
             }.font(.caption)
-
-            Text(model.enneagram?.levels[model.chartData[Date().justDate()]!.level] ?? "") //EDGE CASE: Error here if date that app is opnened is different than date that slider is interacted with
+            
+            TextEditor(text: $notes)
+                .foregroundColor(self.notes == placeholderString ? .gray : .primary)
+                .onTapGesture {
+                    if self.notes == placeholderString {
+                        self.notes = ""
+                    }
+                }
+            //Text(model.enneagram?.levels[model.chartData[Date().justDate()]!.level] ?? "") //EDGE CASE: Error here if date that app is opnened is different than date that slider is interacted with
             
             Spacer()
             
             Button{
-                showNotes.toggle()
+                model.setToday(notes: self.notes)
             }label: {
-                Text("Notes")
+                Text("Save")
             }.buttonStyle(.bordered)
         }
         .padding()

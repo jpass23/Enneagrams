@@ -41,6 +41,7 @@ struct Point: Identifiable{
     let id = UUID()
     let level: Int
     var animate: Bool = false
+    var notes: String = ""
 }
 
 class Model: ObservableObject {
@@ -89,8 +90,8 @@ class Model: ObservableObject {
         UserDefaults.standard.set(nil, forKey: "enneagram")
     }
     
-    func setToday(){
-        self.chartData[Date().justDate()] = Point(level: 10-Int(self.todaysRating), animate: true)
+    func setToday(notes: String){
+        self.chartData[Date().justDate()] = Point(level: 10-Int(self.todaysRating), animate: true, notes: notes)
         //Update chartData in UserDefaults
     }
 }
