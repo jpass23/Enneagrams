@@ -9,12 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var model = Model()
+    
     var body: some View {
         NavigationStack{
             LandingPageView()
-            .sheet(isPresented: $model.onboardingComplete.negate) {
-                ChooseEnneagramView()
-            }
+                .sheet(isPresented: $model.onboardingComplete.negate) {
+                    ChooseEnneagramView().interactiveDismissDisabled(true)
+                }
+                .sheet(isPresented: $model.hasRatedToday.negate) {
+                    NavigationStack {
+                        RateView()
+                    }
+                }.interactiveDismissDisabled(true)
         }
         .environmentObject(model)
     }
