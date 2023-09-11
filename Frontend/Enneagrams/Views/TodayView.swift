@@ -10,39 +10,39 @@ import SwiftUI
 
 struct TodayView: View {
     @EnvironmentObject var model: Model
-    @State var showNotes: Bool = false
     @State var notes: String = "Click to add notes"
     let date: Date = Date()
     let placeholderString = "Click to add notes"
     var body: some View {
         VStack{
-            Text("Today you feel like a \(model.chartData[date.justDate()]?.level ?? 0)")
-                .foregroundColor(.secondary)
+            Text("Today you feel like a:")
+            Menu{
+                MyMenu
+            }label: {
+                Text("\(model.chartData[date.justDate()]?.level ?? 0)")
+                    .underline()
+            }
+            .foregroundColor(.primary)
+            .font(.title)
             
-            Slider(value: $model.todaysRating, in: 1...9, step: 1)
-                .onChange(of: model.todaysRating) { _ in
-                    model.setToday(notes: self.notes)
-            }.font(.caption)
-            
-            TextEditor(text: $notes)
-                .foregroundColor(self.notes == placeholderString ? .gray : .primary)
-                .onTapGesture {
-                    if self.notes == placeholderString {
-                        self.notes = ""
-                    }
-                }
-            //Text(model.enneagram?.levels[model.chartData[Date().justDate()]!.level] ?? "") //EDGE CASE: Error here if date that app is opnened is different than date that slider is interacted with
-            
+            Form {
+                TextEditor(text: $notes)
+                    .foregroundColor(self.notes == placeholderString ? .gray : .primary)
+                    .onTapGesture {
+                        if self.notes == placeholderString {
+                            self.notes = ""
+                        }
+                    }.scrollDisabled(false)
+            }
             Spacer()
             
             Button{
-                model.setToday(notes: self.notes)
+                model.setDay(rating: Double(model.chartData[date.justDate()]!.level), notes: self.notes)
             }label: {
                 Text("Save")
             }.buttonStyle(.bordered)
         }
         .padding()
-        .navigationTitle("\(model.enneagram?.name ?? "")")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink{
@@ -53,14 +53,19 @@ struct TodayView: View {
                     }
                 }
             }
-            .sheet(isPresented: $showNotes) {
-                Text("Here are some notes")
-            }
+    }
+    
+    @ViewBuilder var MyMenu: some View {
+        Button{
+            model.hasRatedToday = false
+        }label: {
+            Label("Change Rating", systemImage: "gobackward")
+        }
     }
 }
 
-struct TodayView_Previews: PreviewProvider {
-    static var previews: some View {
-        TodayView()
-    }
-}
+//struct TodayView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TodayView()
+//    }
+//}

@@ -47,6 +47,7 @@ struct Point: Identifiable{
 class Model: ObservableObject {
     let types: [String] = ["The Reformer", "The Helper", "The Achiever", "The Individualist", "The Investigator", "The Loyalist", "The Enthusiast", "The Challenger", "The Peacemaker"]
     @Published var onboardingComplete = UserDefaults.standard.bool(forKey: "onboardingComplete")
+    @Published var hasRatedToday = false
     @Published var enneagram: Enneagram?
     @Published var chartData: [Date:Point] = [Date.from(year: 2023, month: 7, day: 19) : Point(level: 1),
                                               Date.from(year: 2023, month: 7, day: 20) : Point(level: 3),
@@ -61,17 +62,16 @@ class Model: ObservableObject {
                                               Date.from(year: 2023, month: 7, day: 29) : Point(level: 2),
                                               Date.from(year: 2023, month: 7, day: 30) : Point(level: 5),
                                               Date.from(year: 2023, month: 7, day: 31) : Point(level: 2)]
-    @Published var todaysRating: Double = 1
     
     init() {
         if let data = UserDefaults.standard.object(forKey: "enneagram") as? Data {
             self.enneagram = try? JSONDecoder().decode(Enneagram.self, from: data)
         }
-        //Grab chartData from userDefaults
-        //TODO
+        //TODO: Grab chartData from userDefaults
+        if chartData[Date().justDate()] != nil {
+            hasRatedToday = true
+        }
         
-        //Set today's point
-        self.chartData[Date().justDate()] = Point(level: 9)
     }
     
     func setEnneagram(to enneagram: Enneagram){
@@ -90,8 +90,9 @@ class Model: ObservableObject {
         UserDefaults.standard.set(nil, forKey: "enneagram")
     }
     
-    func setToday(notes: String){
-        self.chartData[Date().justDate()] = Point(level: 10-Int(self.todaysRating), animate: true, notes: notes)
-        //Update chartData in UserDefaults
+    func setDay(date: Date = Date(), rating: Double, notes: String){
+        self.chartData[date.justDate()] = Point(level: 10-Int(rating), animate: true, notes: notes)
+        //TODO: Update chartData in UserDefaults
+        
     }
 }

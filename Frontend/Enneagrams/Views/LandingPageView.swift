@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LandingPageView: View {
+    @EnvironmentObject var model: Model
     @State var selection = 2
     var body: some View{
         TabView(selection: $selection) {
@@ -20,7 +21,7 @@ struct LandingPageView: View {
             ChartPageView().tabItem {
                 Image(systemName: "chart.xyaxis.line")
             }.tag(3)
-        }
+        }.navigationTitle(model.enneagram?.name ?? "")
     }
 }
 
