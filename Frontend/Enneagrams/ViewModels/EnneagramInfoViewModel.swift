@@ -22,7 +22,7 @@ class EnneagramInfoViewModel: ObservableObject {
     }
     
     func loadData(enneagramNum: Int) async {
-        guard let url = URL(string: "http://0.0.0.0:8080/enneagram/\(enneagramNum)") else {return} //Change this URL
+        guard let url = URL(string: "https://enneagrams-1-a8447187.deta.app/enneagram/\(enneagramNum)") else {return} //Change this URL
         do {
             let (data,_) = try await URLSession.shared.data(from: url)
             let decoder = JSONDecoder()
