@@ -17,7 +17,17 @@ Note: These views will have much better designs in a final version, this is just
 
 <div align=left>
 
-<img src=" " width="250"/>
+<img src="https://github.com/jpass23/Enneagrams/blob/main/Screenshots/Choose%20Page.png" width="250"/>
+
+<img src="https://github.com/jpass23/Enneagrams/blob/main/Screenshots/Info%20View.png" width="250"/>
+
+<img src="https://github.com/jpass23/Enneagrams/blob/main/Screenshots/Rate%20View.png" width="250"/>
+
+<img src="https://github.com/jpass23/Enneagrams/blob/main/Screenshots/History%20View.png" width="250"/>
+
+<img src="https://github.com/jpass23/Enneagrams/blob/main/Screenshots/Today%20View.png" width="250"/>
+
+<img src="https://github.com/jpass23/Enneagrams/blob/main/Screenshots/Chart%20View.png" width="250"/>
 
 </div>
 
